@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#e9e7dc">
+<title>Carmen & Nacho · 19 de junio de 2027</title>
+<style>
+:root{
+  --sage:#7b8b73; --sage-dark:#435342; --sage-light:#dfe4d8;
+  --ivory:#f8f5ed; --ink:#343a32; --muted:#73786e; --line:#d8d9ce;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.6}
+a{color:inherit}
+.nav-wrap{position:sticky;top:0;z-index:10;background:rgba(248,245,237,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{max-width:1050px;margin:auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-size:1.08rem;letter-spacing:.08em;text-decoration:none;white-space:nowrap}
+.menu-button{border:1px solid var(--sage);border-radius:3px;background:transparent;color:var(--sage-dark);padding:8px 12px;font:inherit;cursor:pointer}
+.nav-links{display:none;position:absolute;left:0;right:0;top:100%;padding:12px 22px 18px;background:var(--ivory);border-bottom:1px solid var(--line)}
+.nav-links.open{display:grid;gap:8px}
+.nav-links a{text-decoration:none;padding:7px 0;color:var(--sage-dark);font-size:.98rem}
+.hero{min-height:88vh;display:grid;place-items:center;text-align:center;padding:76px 22px;position:relative;overflow:hidden;background:
+ linear-gradient(rgba(248,245,237,.48),rgba(248,245,237,.58)),
+ url("assets/acuarela-cabecera.png") center center / cover no-repeat,
+ var(--ivory)}
+.hero:before,.hero:after{content:"";position:absolute;width:220px;height:330px;border:1px solid rgba(123,139,115,.35);border-radius:100% 0 100% 0;transform:rotate(35deg);pointer-events:none}
+.hero:before{left:-120px;top:10%}.hero:after{right:-120px;bottom:2%;transform:rotate(215deg)}
+.hero-inner{max-width:720px;position:relative;z-index:1}
+.kicker{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:.23em;font-size:.72rem;color:var(--sage-dark)}
+h1{font-weight:400;font-size:clamp(3.1rem,10vw,6.8rem);line-height:.98;margin:28px 0 20px;color:var(--sage-dark)}
+.amp{font-style:italic;font-size:.72em;color:var(--sage)}
+.hero-date{font-size:1.1rem;letter-spacing:.08em}
+.ornament{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--sage);margin:28px auto}
+.ornament:before,.ornament:after{content:"";width:54px;border-top:1px solid var(--sage)}
+.hero-place{font-size:1.1rem}
+.hero-note{max-width:470px;margin:22px auto 0;color:var(--muted);font-size:1rem}
+.section{padding:76px 22px}
+.section.alt{background:#eeeee5}
+.container{max-width:800px;margin:auto}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;font: .72rem Arial,sans-serif;color:var(--sage-dark);text-align:center}
+h2{text-align:center;font-weight:400;font-size:clamp(2rem,5vw,3.25rem);line-height:1.15;margin:14px 0 24px;color:var(--sage-dark)}
+.intro{text-align:center;max-width:620px;margin:0 auto;color:#555b51;font-size:1.08rem}
+.details{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px}
+.detail{padding:24px;border:1px solid var(--line);text-align:center;background:rgba(255,255,255,.28)}
+.detail h3{font-size:1.25rem;font-weight:400;color:var(--sage-dark);margin:0 0 8px}
+.detail p{margin:4px 0}
+.small{font: .9rem Arial,sans-serif;color:var(--muted)}
+.timeline{max-width:590px;margin:34px auto 0}
+.event{display:grid;grid-template-columns:86px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.event:last-child{border-bottom:0}
+.time{color:var(--sage-dark);font-size:1.05rem}
+.event h3{margin:0 0 4px;font-size:1.16rem;font-weight:400}
+.event p{margin:0;color:var(--muted);font: .92rem/1.55 Arial,sans-serif}
+.note{font: .82rem Arial,sans-serif;color:var(--muted);text-align:center;margin-top:24px}
+.rsvp-box{max-width:610px;margin:30px auto 0;padding:30px;border:1px solid var(--line);background:rgba(255,255,255,.32)}
+.rsvp-box p{text-align:center}
+.rsvp-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:22px}
+.btn{display:inline-block;text-decoration:none;border:1px solid var(--sage-dark);background:var(--sage-dark);color:white;padding:12px 19px;font: .92rem Arial,sans-serif;letter-spacing:.03em}
+.btn.secondary{background:transparent;color:var(--sage-dark)}
+footer{text-align:center;padding:35px 20px;background:var(--sage-dark);color:var(--ivory)}
+footer .names{font-size:1.8rem;margin-bottom:4px}
+footer p{margin:0;font: .8rem Arial,sans-serif;letter-spacing:.08em}
+@media(min-width:700px){
+ .menu-button{display:none}
+ .nav-links{display:flex!important;position:static;padding:0;border:0;background:transparent;gap:20px}
+ .nav-links a{font-size:.88rem}
+ .details{grid-template-columns:1fr 1fr}
+ .hero:before{left:5%;}.hero:after{right:5%}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Navegación principal">
+    <a class="brand" href="#inicio">CARMEN <span style="color:var(--sage)">&</span> NACHO</a>
+    <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">☰ Menú</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#historia">Nuestra boda</a>
+      <a href="#ceremonia">Ceremonia</a>
+      <a href="#cronograma">Cronograma</a>
+      <a href="#confirmacion">Confirmación</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+    <div class="kicker">¡Nos casamos!</div>
+    <h1>Carmen <span class="amp">&</span><br>Nacho</h1>
+    <div class="ornament" aria-hidden="true">✳</div>
+    <div class="hero-date">19 · JUNIO · 2027 &nbsp; | &nbsp; 17:00 H</div>
+    <p class="hero-place">Iglesia de San Bartolomé</p>
+    <p class="hero-note">Hay momentos que se vuelven inolvidables cuando se comparten. Nos encantaría vivir este día contigo.</p>
+  </div>
+</section>
+
+<section class="section" id="historia">
+  <div class="container">
+    <div class="eyebrow">Un día para recordar</div>
+    <h2>Nos hace ilusión<br>compartirlo contigo</h2>
+    <p class="intro">Después de tantas historias compartidas, comienza una nueva etapa. Queremos celebrar nuestro “sí, quiero” rodeados de las personas que forman parte de nuestra vida.</p>
+  </div>
+</section>
+
+<section class="section alt" id="ceremonia">
+  <div class="container">
+    <div class="eyebrow">Apunta la fecha</div>
+    <h2>La celebración</h2>
+    <div class="details">
+      <article class="detail">
+        <h3>La ceremonia</h3>
+        <p><strong>17:00 h</strong></p>
+        <p>Iglesia de San Bartolomé</p>
+        <p class="small">19 de junio de 2027</p>
+        <!-- Sustituir el enlace por la dirección exacta de la iglesia cuando esté confirmada -->
+        <p style="margin-top:16px"><a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=Iglesia+de+San+Bartolom%C3%A9" target="_blank" rel="noopener">Cómo llegar</a></p>
+      </article>
+      <article class="detail">
+        <h3>Después, lo celebramos</h3>
+        <p>Un encuentro para brindar, compartir y bailar.</p>
+        <p class="small">Los detalles del lugar y la hora se actualizarán aquí.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="cronograma">
+  <div class="container">
+    <div class="eyebrow">El gran día</div>
+    <h2>Cronograma</h2>
+    <p class="intro">Una pequeña guía para disfrutar de cada momento. Los horarios posteriores a la ceremonia son provisionales.</p>
+    <div class="timeline">
+      <div class="event"><div class="time">16:30 h</div><div><h3>Llegada de invitados</h3><p>Un ratito para llegar con calma y saludarnos.</p></div></div>
+      <div class="event"><div class="time">17:00 h</div><div><h3>Ceremonia</h3><p>Nos damos el “sí, quiero” en la iglesia de San Bartolomé.</p></div></div>
+      <div class="event"><div class="time">18:00 h</div><div><h3>Felicitaciones y fotografías</h3><p>Abrazos, recuerdos y primeras fotos de este día.</p></div></div>
+      <div class="event"><div class="time">20:00 h</div><div><h3>Celebración</h3><p>Hacienda Vandelvira, Baeza. Brindis, cena y tiempo para disfrutar juntos.</p><p><a href="https://www.google.com/maps/search/?api=1&query=Hacienda+Vandelvira+Baeza" target="_blank" rel="noopener noreferrer">Cómo llegar a Hacienda Vandelvira</a></p></div></div>
+      <div class="event"><div class="time">22:30 h</div><div><h3>¡A bailar!</h3><p>Música y fiesta para terminar el día como se merece.</p></div></div>
+    </div>
+    <p class="note">Horarios orientativos, pendientes de confirmación.</p>
+  </div>
+</section>
+
+<section class="section alt" id="confirmacion">
+  <div class="container">
+    <div class="eyebrow">Nos encantará contar contigo</div>
+    <h2>¿Nos acompañas?</h2>
+    <div class="rsvp-box">
+      <p>Confírmanos si podrás venir y, si tienes alguna alergia alimentaria, indícalo en el formulario.</p>
+      <p class="small">Añade aquí el enlace de tu formulario de Google Forms para que las respuestas queden registradas en tu hoja de cálculo.</p>
+      <div class="rsvp-actions">
+        <!-- Reemplazar FORMULARIO_GOOGLE_FORMS_URL por el enlace real del formulario -->
+        <a class="btn" href="https://docs.google.com/forms/" target="_blank" rel="noopener">Confirmar asistencia</a>
+        <a class="btn secondary" href="mailto:?subject=Boda%20de%20Carmen%20y%20Nacho">Contactar</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="names">Carmen <span style="color:#c8d1bf">&</span> Nacho</div>
+  <p>19 DE JUNIO DE 2027 · CON TODO NUESTRO CARIÑO</p>
+</footer>
+
+<script>
+const menuButton = document.getElementById('menuButton');
+const navLinks = document.getElementById('navLinks');
+menuButton.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(isOpen));
+  menuButton.textContent = isOpen ? '✕ Cerrar' : '☰ Menú';
+});
+navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
+  menuButton.textContent = '☰ Menú';
+}));
+</script>
+</body>
+</html>
