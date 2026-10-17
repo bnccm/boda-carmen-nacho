@@ -1,26 +1,17 @@
-# Invitación digital · Carmen & Nacho
+# Invitación digital de Carmen y Nacho
 
-Web estática para la boda de Carmen y Nacho.
+**Importante:** estos archivos deben quedar en la raíz del repositorio GitHub `boda-carmen-nacho` (no dentro de otra carpeta).
 
-## Archivos
-- `index.html`: invitación adaptable a móviles, menú colapsable, cuenta atrás y cronograma.
-- `assets/acuarela-cabecera.png`: acuarela de cabecera.
+- `index.html`: web de la invitación.
+- `assets/acuarela-cabecera.png`: acuarela sin textos.
+- `.nojekyll`: configuración de GitHub Pages.
 
-## Datos incluidos
-- 19 de junio de 2027.
-- Ceremonia: Iglesia de San Bartolomé, 17:00 h.
-- Celebración: Hacienda Vandelvira, Baeza, 20:00 h.
+Datos: ceremonia el 19 de junio de 2027 a las 17:00 en la Iglesia de San Bartolomé de Jaén; celebración a las 20:00 en Hacienda Vandelvira, Baeza (Jaén). El botón de confirmación enlaza al Google Forms facilitado.
 
-## Probar en local
-Abre `index.html` con Chrome, Edge o Firefox.
-
-## Publicar en GitHub Pages
-1. Inicia sesión en https://github.com y pulsa **New repository**.
-2. Nombre sugerido: `boda-carmen-nacho`; selecciona **Public** y crea el repositorio.
-3. Pulsa **Add file → Upload files** y sube `index.html`, la carpeta `assets` completa, `README.md` y `.nojekyll`.
-4. Pulsa **Commit changes**.
-5. Entra en **Settings → Pages**. En **Build and deployment**, elige **Deploy from a branch**, rama `main`, carpeta `/ (root)` y pulsa **Save**.
-6. La URL pública aparecerá en esa sección cuando termine la publicación.
-
-## Antes de compartir
-Sustituye el enlace provisional de Google Forms por el enlace real del formulario y revisa que el enlace de Maps de la iglesia corresponda al templo correcto. El formulario debe estar publicado en Google Forms para guardar respuestas.
+## Actualizar GitHub Pages
+1. Abre https://github.com/bnccm/boda-carmen-nacho
+2. En la raíz del repositorio, selecciona **Add file → Upload files**.
+3. Sube `index.html`, `.nojekyll` y la carpeta `assets` (con `acuarela-cabecera.png`).
+4. Confirma con **Commit changes** en la rama `main`. Si GitHub pregunta si quieres reemplazar `index.html` y la imagen, confirma.
+5. En **Settings → Pages**, verifica `Deploy from a branch`, `main`, `/(root)`.
+6. Espera un minuto y abre https://bnccm.github.io/boda-carmen-nacho/ con `Ctrl+F5`.
