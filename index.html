@@ -36,6 +36,12 @@ h1{font-weight:400;font-size:clamp(3.1rem,10vw,6.8rem);line-height:.98;margin:28
 .ornament:before,.ornament:after{content:"";width:54px;border-top:1px solid var(--sage)}
 .hero-place{font-size:1.1rem}
 .hero-note{max-width:470px;margin:22px auto 0;color:var(--muted);font-size:1rem}
+.hero-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:28px}
+.countdown{padding:58px 22px;background:#eeeee5;text-align:center}
+.countdown-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;max-width:570px;margin:28px auto 0}
+.countdown-unit{padding:18px 8px;border:1px solid var(--line);background:rgba(255,255,255,.42)}
+.countdown-number{display:block;color:var(--sage-dark);font-size:clamp(1.8rem,6vw,3rem);line-height:1.1;font-variant-numeric:tabular-nums}
+.countdown-label{display:block;margin-top:8px;font: .7rem Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .section{padding:76px 22px}
 .section.alt{background:#eeeee5}
 .container{max-width:800px;margin:auto}
@@ -81,6 +87,7 @@ footer p{margin:0;font: .8rem Arial,sans-serif;letter-spacing:.08em}
       <a href="#historia">Nuestra boda</a>
       <a href="#ceremonia">Ceremonia</a>
       <a href="#cronograma">Cronograma</a>
+      <a href="#lista-bodas">Lista de bodas</a>
       <a href="#confirmacion">Confirmación</a>
     </div>
   </nav>
@@ -95,6 +102,24 @@ footer p{margin:0;font: .8rem Arial,sans-serif;letter-spacing:.08em}
     <div class="hero-date">19 · JUNIO · 2027 &nbsp; | &nbsp; 17:00 H</div>
     <p class="hero-place">Iglesia de San Bartolomé</p>
     <p class="hero-note">Hay momentos que se vuelven inolvidables cuando se comparten. Nos encantaría vivir este día contigo.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#ceremonia">Descubre los detalles</a>
+    </div>
+  </div>
+</section>
+
+<section class="countdown" aria-labelledby="countdown-title">
+  <div class="container">
+    <div class="eyebrow">Cada vez queda menos</div>
+    <h2 id="countdown-title">La cuenta atrás</h2>
+    <p class="intro">Estamos deseando compartir este día contigo.</p>
+    <div class="countdown-grid" id="countdown" role="timer" aria-live="off" aria-label="Cuenta atrás para la boda">
+      <div class="countdown-unit"><span class="countdown-number" id="days">—</span><span class="countdown-label">Días</span></div>
+      <div class="countdown-unit"><span class="countdown-number" id="hours">—</span><span class="countdown-label">Horas</span></div>
+      <div class="countdown-unit"><span class="countdown-number" id="minutes">—</span><span class="countdown-label">Minutos</span></div>
+      <div class="countdown-unit"><span class="countdown-number" id="seconds">—</span><span class="countdown-label">Segundos</span></div>
+    </div>
+    <p class="note" id="countdown-message">19 de junio de 2027 · 17:00 h</p>
   </div>
 </section>
 
@@ -115,6 +140,8 @@ footer p{margin:0;font: .8rem Arial,sans-serif;letter-spacing:.08em}
         <h3>La ceremonia</h3>
         <p><strong>17:00 h</strong></p>
         <p>Iglesia de San Bartolomé</p>
+     <p>Jaén</p>
+
         <p class="small">19 de junio de 2027</p>
         <!-- Sustituir el enlace por la dirección exacta de la iglesia cuando esté confirmada -->
         <p style="margin-top:16px"><a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=Iglesia+de+San+Bartolom%C3%A9+Ja%C3%A9n" target="_blank" rel="noopener">Cómo llegar</a></p>
@@ -147,6 +174,23 @@ footer p{margin:0;font: .8rem Arial,sans-serif;letter-spacing:.08em}
   </div>
 </section>
 
+<section class="section" id="lista-bodas">
+  <div class="container">
+    <div class="eyebrow">Un detalle con cariño</div>
+    <h2>Lista de bodas</h2>
+    <div class="rsvp-box">
+      <p>Lo más importante para nosotros es compartir este día contigo.</p>
+<p>Si además quieres ayudarnos a empezar nuestra vida juntos, os
+facilitamos la información de la cuenta bancaria que hemos habilitado
+para la ocasión:</p>
+
+
+<p  class="small">ES 17 0049 0265 4027 1059 7773</p>
+      <!-- Cuando tengas el enlace de la lista de bodas o los datos que quieras compartir, sustituiremos este texto por el botón correspondiente. -->
+    </div>
+  </div>
+</section>
+
 <section class="section alt" id="confirmacion">
   <div class="container">
     <div class="eyebrow">Nos encantará contar contigo</div>
@@ -164,13 +208,34 @@ footer p{margin:0;font: .8rem Arial,sans-serif;letter-spacing:.08em}
 </main>
 
 <footer>
-  <div class="names">Carmen <span style="color:#c8d1bf">y</span> Nacho</div>
+  <div class="names">Carmen <span style="color:#c8d1bf">&</span> Nacho</div>
   <p>19 DE JUNIO DE 2027 · CON TODO NUESTRO CARIÑO</p>
 </footer>
 
 <script>
 const menuButton = document.getElementById('menuButton');
 const navLinks = document.getElementById('navLinks');
+
+// Cuenta atrás hasta la ceremonia: 19 de junio de 2027 a las 17:00, hora peninsular española.
+const weddingDate = new Date('2027-06-19T17:00:00+02:00').getTime();
+const countdownMessage = document.getElementById('countdown-message');
+function updateCountdown() {
+  const distance = weddingDate - Date.now();
+  if (distance <= 0) {
+    ['days','hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent = '0');
+    countdownMessage.textContent = '¡Hoy es el gran día!';
+    return;
+  }
+  const values = {
+    days: Math.floor(distance / 86400000),
+    hours: Math.floor((distance % 86400000) / 3600000),
+    minutes: Math.floor((distance % 3600000) / 60000),
+    seconds: Math.floor((distance % 60000) / 1000)
+  };
+  Object.entries(values).forEach(([id, value]) => document.getElementById(id).textContent = String(value).padStart(2, '0'));
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
 menuButton.addEventListener('click', () => {
   const isOpen = navLinks.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', String(isOpen));
