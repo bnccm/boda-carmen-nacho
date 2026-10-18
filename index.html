@@ -25,8 +25,6 @@ a{color:inherit}
  linear-gradient(rgba(248,245,237,.48),rgba(248,245,237,.58)),
  url("assets/acuarela-cabecera.png") center center / cover no-repeat,
  var(--ivory)}
-.hero:before,.hero:after{content:"";position:absolute;width:220px;height:330px;border:1px solid rgba(123,139,115,.35);border-radius:100% 0 100% 0;transform:rotate(35deg);pointer-events:none}
-.hero:before{left:-120px;top:10%}.hero:after{right:-120px;bottom:2%;transform:rotate(215deg)}
 .hero-inner{max-width:720px;position:relative;z-index:1}
 .kicker{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:.23em;font-size:.72rem;color:var(--sage-dark)}
 h1{font-weight:400;font-size:clamp(3.1rem,10vw,6.8rem);line-height:.98;margin:28px 0 20px;color:var(--sage-dark)}
@@ -56,7 +54,7 @@ h2{text-align:center;font-weight:400;font-size:clamp(2rem,5vw,3.25rem);line-heig
 .schedule-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:start;margin-top:28px}
 .schedule-layout .timeline{max-width:none;margin:0}
 .route-figure{margin:0 auto;max-width:430px;width:100%;text-align:center}
-.route-figure img{display:block;width:100%;height:auto;border:0px solid var(--line);box-shadow:0 10px 30px rgba(52,58,50,.08)}
+.route-figure img{display:block;width:100%;height:auto;border:1px solid var(--line);box-shadow:0 10px 30px rgba(52,58,50,.08)}
 .route-figure figcaption{margin-top:10px;font: .78rem/1.5 Arial,sans-serif;color:var(--muted)}
 @media(min-width:850px){.schedule-layout{grid-template-columns:minmax(0,1fr) minmax(280px,.82fr);gap:36px}.route-figure{position:sticky;top:95px}}
 .timeline{max-width:590px;margin:34px auto 0}
@@ -79,15 +77,33 @@ footer p{margin:0;font: .8rem Arial,sans-serif;letter-spacing:.08em}
  .nav-links{display:flex!important;position:static;padding:0;border:0;background:transparent;gap:20px}
  .nav-links a{font-size:.88rem}
  .details{grid-template-columns:1fr 1fr}
- .hero:before{left:5%;}.hero:after{right:5%}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Ramas de olivo discretas en el contenido; la acuarela de portada queda limpia */
+.section, .countdown { position: relative; }
+.section > .container, .countdown > .container { position: relative; z-index: 1; }
+.section::before, .section::after, .countdown::before, .countdown::after {
+  content: ""; position: absolute; width: 66px; height: 108px;
+  background: url("assets/rama-olivo.svg") center / contain no-repeat;
+  opacity: .25; pointer-events: none; z-index: 0;
+}
+.section::before { left: 14px; top: 24px; transform: rotate(-22deg); }
+.section::after { right: 14px; bottom: 20px; transform: rotate(158deg); }
+.countdown::before { left: 18px; top: 18px; transform: rotate(-28deg) scale(.8); }
+.countdown::after { right: 18px; bottom: 16px; transform: rotate(152deg) scale(.8); }
+@media (max-width: 600px) {
+  .section::before, .section::after, .countdown::before, .countdown::after { width: 42px; height: 70px; opacity: .2; }
+  .section::before { left: 3px; top: 12px; }
+  .section::after { right: 3px; bottom: 12px; }
+}
+
 </style>
 </head>
 <body>
 <header class="nav-wrap">
   <nav class="nav" aria-label="Navegación principal">
-    <a class="brand" href="#inicio">CARMEN <span style="color:var(--sage)">y</span> NACHO</a>
+    <a class="brand" href="#inicio">CARMEN <span style="color:var(--sage)">&</span> NACHO</a>
     <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">☰ Menú</button>
     <div class="nav-links" id="navLinks">
       <a href="#historia">Nuestra boda</a>
@@ -103,7 +119,7 @@ footer p{margin:0;font: .8rem Arial,sans-serif;letter-spacing:.08em}
 <section class="hero" id="inicio">
   <div class="hero-inner">
     <div class="kicker">¡Nos casamos!</div>
-    <h1>Carmen <span class="amp">y</span><br>Nacho</h1>
+    <h1>Carmen <span class="amp">&</span><br>Nacho</h1>
     <div class="ornament" aria-hidden="true">✳</div>
     <div class="hero-date">19 · JUNIO · 2027 &nbsp; | &nbsp; 17:00 H</div>
     <p class="hero-place">Iglesia de San Bartolomé</p>
@@ -146,8 +162,6 @@ footer p{margin:0;font: .8rem Arial,sans-serif;letter-spacing:.08em}
         <h3>La ceremonia</h3>
         <p><strong>17:00 h</strong></p>
         <p>Iglesia de San Bartolomé</p>
-        <p>Jaén</p>
-
         <p class="small">19 de junio de 2027</p>
         <!-- Sustituir el enlace por la dirección exacta de la iglesia cuando esté confirmada -->
         <p style="margin-top:16px"><a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=Iglesia+de+San+Bartolom%C3%A9+Ja%C3%A9n" target="_blank" rel="noopener">Cómo llegar</a></p>
@@ -192,13 +206,8 @@ footer p{margin:0;font: .8rem Arial,sans-serif;letter-spacing:.08em}
     <h2>Lista de bodas</h2>
     <div class="rsvp-box">
       <p>Lo más importante para nosotros es compartir este día contigo.</p>
-<p>Si además quieres ayudarnos a empezar nuestra vida juntos, os
-facilitamos la información de la cuenta bancaria que hemos habilitado
-para la ocasión:</p>
-
-
-<p  class="small">ES 17 0049 0265 4027 1059 7773</p>
-      <!-- Cuando tengas el enlace de la lista de bodas o los datos que quieras compartir, sustituiremos este texto por el botón correspondiente. -->
+      <p>Si además quieres ayudarnos a empezar nuestra vida juntos, os facilitamos la información de la cuenta bancaria que hemos habilitado para la ocasión:</p>
+      <p class="small">ES 17 0049 0265 4027 1059 7773</p>
     </div>
   </div>
 </section>
@@ -220,7 +229,7 @@ para la ocasión:</p>
 </main>
 
 <footer>
-  <div class="names">Carmen <span style="color:#c8d1bf">y</span> Nacho</div>
+  <div class="names">Carmen <span style="color:#c8d1bf">&</span> Nacho</div>
   <p>19 DE JUNIO DE 2027 · CON TODO NUESTRO CARIÑO</p>
 </footer>
 
