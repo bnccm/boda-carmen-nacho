@@ -53,6 +53,12 @@ h2{text-align:center;font-weight:400;font-size:clamp(2rem,5vw,3.25rem);line-heig
 .detail h3{font-size:1.25rem;font-weight:400;color:var(--sage-dark);margin:0 0 8px}
 .detail p{margin:4px 0}
 .small{font: .9rem Arial,sans-serif;color:var(--muted)}
+.schedule-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:start;margin-top:28px}
+.schedule-layout .timeline{max-width:none;margin:0}
+.route-figure{margin:0 auto;max-width:430px;width:100%;text-align:center}
+.route-figure img{display:block;width:100%;height:auto;border:0px solid var(--line);box-shadow:0 10px 30px rgba(52,58,50,.08)}
+.route-figure figcaption{margin-top:10px;font: .78rem/1.5 Arial,sans-serif;color:var(--muted)}
+@media(min-width:850px){.schedule-layout{grid-template-columns:minmax(0,1fr) minmax(280px,.82fr);gap:36px}.route-figure{position:sticky;top:95px}}
 .timeline{max-width:590px;margin:34px auto 0}
 .event{display:grid;grid-template-columns:86px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
 .event:last-child{border-bottom:0}
@@ -140,7 +146,7 @@ footer p{margin:0;font: .8rem Arial,sans-serif;letter-spacing:.08em}
         <h3>La ceremonia</h3>
         <p><strong>17:00 h</strong></p>
         <p>Iglesia de San Bartolomé</p>
-     <p>Jaén</p>
+        <p>Jaén</p>
 
         <p class="small">19 de junio de 2027</p>
         <!-- Sustituir el enlace por la dirección exacta de la iglesia cuando esté confirmada -->
@@ -163,12 +169,18 @@ footer p{margin:0;font: .8rem Arial,sans-serif;letter-spacing:.08em}
     <div class="eyebrow">El gran día</div>
     <h2>Cronograma</h2>
     <p class="intro">Una pequeña guía para disfrutar de cada momento. La ceremonia será a las 17:00 h y la celebración en Hacienda Vandelvira a las 20:00 h. Los demás horarios son orientativos.</p>
-    <div class="timeline">
-      <div class="event"><div class="time">16:30 h</div><div><h3>Llegada de invitados</h3><p>Un ratito para llegar con calma y saludarnos.</p></div></div>
-      <div class="event"><div class="time">17:00 h</div><div><h3>Ceremonia</h3><p>Nos damos el “sí, quiero” en la iglesia de San Bartolomé.</p></div></div>
-      <div class="event"><div class="time">18:00 h</div><div><h3>Felicitaciones y fotografías</h3><p>Abrazos, recuerdos y primeras fotos de este día.</p></div></div>
-      <div class="event"><div class="time">20:00 h</div><div><h3>Celebración</h3><p>Hacienda Vandelvira, Baeza. Brindis, cena y tiempo para disfrutar juntos.</p><p><a href="https://www.google.com/maps/search/?api=1&query=Hacienda+Vandelvira+Baeza" target="_blank" rel="noopener noreferrer">Cómo llegar a Hacienda Vandelvira</a></p></div></div>
-      <div class="event"><div class="time">22:30 h</div><div><h3>¡A bailar!</h3><p>Música y fiesta para terminar el día como se merece.</p></div></div>
+    <div class="schedule-layout">
+      <div class="timeline">
+        <div class="event"><div class="time">16:30 h</div><div><h3>Llegada de invitados</h3><p>Un ratito para llegar con calma y saludarnos.</p></div></div>
+        <div class="event"><div class="time">17:00 h</div><div><h3>Ceremonia</h3><p>Nos damos el “sí, quiero” en la iglesia de San Bartolomé.</p></div></div>
+        <div class="event"><div class="time">18:00 h</div><div><h3>Felicitaciones y fotografías</h3><p>Abrazos, recuerdos y primeras fotos de este día.</p></div></div>
+        <div class="event"><div class="time">20:00 h</div><div><h3>Celebración</h3><p>Hacienda Vandelvira, Baeza. Brindis, cena y tiempo para disfrutar juntos.</p><p><a href="https://www.google.com/maps/search/?api=1&query=Hacienda+Vandelvira+Baeza" target="_blank" rel="noopener noreferrer">Cómo llegar a Hacienda Vandelvira</a></p></div></div>
+        <div class="event"><div class="time">22:30 h</div><div><h3>¡A bailar!</h3><p>Música y fiesta para terminar el día como se merece.</p></div></div>
+      </div>
+      <figure class="route-figure">
+        <img src="assets/ruta-celebracion.jpeg" alt="Infografía en acuarela de la ruta desde la Iglesia de San Bartolomé de Jaén hasta Hacienda Vandelvira en Baeza. Distancia aproximada: 48 km y 45 minutos en coche." loading="lazy">
+        <figcaption>Ruta de la ceremonia a la celebración · 48 km aprox. · 45 min en coche</figcaption>
+      </figure>
     </div>
     <p class="note">Ceremonia en la Iglesia de San Bartolomé de Jaén a las 17:00 h. Celebración en Hacienda Vandelvira, Baeza, a las 20:00 h.</p>
   </div>
